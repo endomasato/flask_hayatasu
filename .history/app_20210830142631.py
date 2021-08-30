@@ -1,4 +1,3 @@
-from datetime import datetime
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
@@ -22,13 +21,6 @@ def index():
         detail = request.form.get('detail')
         due = request.form.get('due')
 
-        due = datetime.strptime(due, '%Y-%m-%d')
-        new_post = Post(title=title, detail=detail, due=due)    
-        
-        db.session.add(new_post)
-        db.session.commit()
-        
-        return redirect('/')
         
 @app.route('/create')
 def create():

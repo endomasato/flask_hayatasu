@@ -23,13 +23,7 @@ def index():
         due = request.form.get('due')
 
         due = datetime.strptime(due, '%Y-%m-%d')
-        new_post = Post(title=title, detail=detail, due=due)    
-        
-        db.session.add(new_post)
-        db.session.commit()
-        
-        return redirect('/')
-        
+        new_pod     
 @app.route('/create')
 def create():
     return render_template('create.html')

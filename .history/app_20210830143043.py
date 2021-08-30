@@ -26,9 +26,6 @@ def index():
         new_post = Post(title=title, detail=detail, due=due)    
         
         db.session.add(new_post)
-        db.session.commit()
-        
-        return redirect('/')
         
 @app.route('/create')
 def create():

@@ -1,4 +1,3 @@
-from datetime import datetime
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
@@ -16,20 +15,8 @@ class Post(db.Model):
 def index():
     if request.method == 'GET':
         posts = Post.query.all()
-        return render_template('index.html', posts=posts)
-    else:
-        title = request.form.get('title')
-        detail = request.form.get('detail')
-        due = request.form.get('due')
+    return render_template('index.html')
 
-        due = datetime.strptime(due, '%Y-%m-%d')
-        new_post = Post(title=title, detail=detail, due=due)    
-        
-        db.session.add(new_post)
-        db.session.commit()
-        
-        return redirect('/')
-        
 @app.route('/create')
 def create():
     return render_template('create.html')
