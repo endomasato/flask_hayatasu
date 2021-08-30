@@ -31,10 +31,6 @@ def index():
         return redirect('/')
         
 
-@app.route('/detail/<int:id>')
-def read(id):
-    post = Post.query.get(id)
-    return render_template('detail.html', post=post)
 
 
 if __name__ == '__main__':

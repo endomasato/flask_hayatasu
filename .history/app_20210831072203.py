@@ -32,9 +32,9 @@ def index():
         
 
 @app.route('/detail/<int:id>')
-def read(id):
+def read():
     post = Post.query.get(id)
-    return render_template('detail.html', post=post)
+    return render_template('detail.html', )
 
 
 if __name__ == '__main__':
