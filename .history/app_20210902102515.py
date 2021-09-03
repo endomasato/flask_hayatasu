@@ -32,7 +32,7 @@ def index():
         
 @app.route('/create')
 def create():
-    return render_template('create.html')
+    
 
 @app.route('/detail/<int:id>')
 def read(id):

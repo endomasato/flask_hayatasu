@@ -30,9 +30,7 @@ def index():
         
         return redirect('/')
         
-@app.route('/create')
-def create():
-    return render_template('create.html')
+@app.route('/cre')
 
 @app.route('/detail/<int:id>')
 def read(id):
