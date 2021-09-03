@@ -53,6 +53,8 @@ def update(id):
         return redirect('/')
 
 
+        
+
 @app.route('/delete/<int:id>')
 def delete(id):
     post = Post.query.get(id)

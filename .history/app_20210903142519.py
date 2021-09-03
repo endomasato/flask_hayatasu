@@ -50,7 +50,11 @@ def update(id):
         post.due = datetime.strptime(request.form.get('due'), '%Y-%m-%d')
         
         db.session.commit()
-        return redirect('/')
+        
+
+
+        
+    return render_template('detail.html', post=post)
 
 
 @app.route('/delete/<int:id>')

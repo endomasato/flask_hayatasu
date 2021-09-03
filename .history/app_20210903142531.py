@@ -53,6 +53,10 @@ def update(id):
         return redirect('/')
 
 
+        
+    return render_template('detail.html', post=post)
+
+
 @app.route('/delete/<int:id>')
 def delete(id):
     post = Post.query.get(id)

@@ -46,11 +46,13 @@ def update(id):
         return render_template('update.html', post=post)
     else:
         post.title = request.form.get('title')
-        post.detail = request.form.get('detail')
-        post.due = datetime.strptime(request.form.get('due'), '%Y-%m-%d')
+                post.title = request.form.get('title')
+                post. = request.form.get('title')
+                post.title = request.form.get('title')
+
+
         
-        db.session.commit()
-        return redirect('/')
+    return render_template('detail.html', post=post)
 
 
 @app.route('/delete/<int:id>')

@@ -39,27 +39,12 @@ def read(id):
     post = Post.query.get(id)
     return render_template('detail.html', post=post)
 
-@app.route('/update/<int:id>', methods=['GET', 'POST'])
-def update(id):
-    post = Post.query.get(id)
-    if request.method == 'GET':
-        return render_template('update.html', post=post)
-    else:
-        post.title = request.form.get('title')
-        post.detail = request.form.get('detail')
-        post.due = datetime.strptime(request.form.get('due'), '%Y-%m-%d')
-        
-        db.session.commit()
-        return redirect('/')
-
-
 @app.route('/delete/<int:id>')
 def delete(id):
     post = Post.query.get(id)
     
-    db.session.delete(post)
-    db.session.commit()
-    return redirect('/')
+    db.sess
+    return render_template('detail.html', post=post)
 
 
 if __name__ == '__main__':
