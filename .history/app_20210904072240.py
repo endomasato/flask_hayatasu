@@ -41,13 +41,13 @@ def read(id):
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
-    post = Post.query.order_by(Post.due).all()
+    post = Post.query.get(id)
     if request.method == 'GET':
         return render_template('update.html', post=post)
     else:
         post.title = request.form.get('title')
         post.detail = request.form.get('detail')
-        post.due = datetime.strptime(request.form.get('due'), '%Y-%m-%d')
+        post.due = datetime.strptime(, '%Y-%m-%d')
         
         db.session.commit()
         return redirect('/')

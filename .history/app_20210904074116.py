@@ -41,7 +41,7 @@ def read(id):
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
-    post = Post.query.order_by(Post.due).all()
+    post = Post.query.order_by(Posy.due)
     if request.method == 'GET':
         return render_template('update.html', post=post)
     else:

@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask import Flask, render_template, request, redirect
-from flask_sqlalchemy import SQLAlchemy
+from flask-sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
@@ -41,7 +41,7 @@ def read(id):
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
-    post = Post.query.order_by(Post.due).all()
+    post = Post.query.get(id)
     if request.method == 'GET':
         return render_template('update.html', post=post)
     else:
